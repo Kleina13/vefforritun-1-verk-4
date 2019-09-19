@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="is">
+<head>
+    <meta charset="UTF-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kennitala</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/kt.css') }}">
+</head>
+<body>
+    <div>
+        <nav>
+            {% for i in range(len) %} 
+                <a href="/kennitala/{{ people[i]['kt'] }}">{{ people[i]['kt'] }}</a> <br>
+            {% endfor %} 
+        </nav>
+        <article>
+            <h1<>{{ name }}</h1>
+            <h2>{{ kt }}</h2>
+        </article>
+    </div>
+</body>
+</html>
