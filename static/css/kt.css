@@ -30,6 +30,7 @@ article {
     border-bottom-right-radius: 15px; 
     grid-area: article;
     min-height: 300px;
+    float: right;
 }
 
 nav {
@@ -42,6 +43,7 @@ nav {
     padding: 2px 6px;
     grid-area: nav;
     min-height: 300px;
+    float: left;
 }
 
 h1 {
@@ -67,4 +69,8 @@ a {
 a:hover {
     font-size: 20px; 
     padding: 7px 0px;
+}
+
+p {
+    text-align: left;
 }

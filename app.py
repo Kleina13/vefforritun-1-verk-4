@@ -11,14 +11,15 @@ articles = [{'id': 1, 'author': "Noami Winters", 'title': "Rat poison in school'
 			{'id': 3, 'author': "Carl Bowie", 'title': "Florida man steals baby to get free meth", 'content': lorem_ipsum},
 			{'id': 4, 'author': "Rachel Kristen", 'title': "Football team discovers fire", 'content': lorem_ipsum},
 			{'id': 5, 'author': "Samuel Jackson", 'title': "Donald Trump commits genocide", 'content': lorem_ipsum}]
-people = [{'name': "Kalli B.", 'kt': "120703-2034"},
-		  {'name': "Kalli D.", 'kt': "070100-3920"},
-		  {'name': "Kalli G.", 'kt': "031104-1003"}]
+people = [{'name': "Kalli B.", 'kt': "1207032034"},
+		  {'name': "Kalli D.", 'kt': "0701003920"},
+		  {'name': "Daniel S.", 'kt': "1206734249"},
+		  {'name': "Kalli G.", 'kt': "0311041003"}]
 lenA, lenB = len(articles), len(people)
 
 @app.route('/')
 def index():
-	return '<h1>Velkominn</h1><a href="/mdl/article/1">Ýttu hérna fyrir MDL</a> | <a href="/kennitala/120703-2034">Ýttu hérna fyrir kennitölur</a>'
+	return '<h1>Velkominn</h1><a href="/mdl/article/1">Ýttu hérna fyrir MDL</a> | <a href="/kennitala/1207032034">Ýttu hérna fyrir kennitölur</a>'
 
 @app.route('/mdl/article/<ID>')
 def article(ID):
@@ -33,13 +34,13 @@ def kennitala(KT):
 	for x in range(lenB):
 		if KT == people[x]['kt']:
 			p = people[x]
-			n, k = p['name'], p['kt']
-	return rend('kennitala.html', name=n, kt=k, people=people, len=lenB)
+			n, k, s = p['name'], p['kt'], 0
+			for x in KT: s += int(x)
+	return rend('kennitala.html', name=n, kt=k, people=people, len=lenB, sum=s)
 
 @app.errorhandler(404)
 def error404(error):
 	return '<br><br><h1 style="text-align: center;">ERROR 404</h1><h2 style="text-align: center;">page not found<h2>'
-
 
 
 if __name__ == "__main__":
